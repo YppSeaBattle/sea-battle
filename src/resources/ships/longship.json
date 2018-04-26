@@ -1,6 +1,8 @@
 {
   "name": "Longship",
-  "size": "small",
+  "cbSize": "small",
+  "sizeClass": "medium",
+  "ramDmg": 0.5,
   "maxSFDmg": 9,
   "maxDmg": 15
 }

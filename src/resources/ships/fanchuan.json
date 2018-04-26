@@ -1,6 +1,8 @@
 {
   "name": "Fanchuan",
-  "size": "large",
+  "cbSize": "large",
+  "sizeClass": "small",
+  "ramDmg": 0.5,
   "maxSFDmg": 7.875,
   "maxDmg": 13.125
 }

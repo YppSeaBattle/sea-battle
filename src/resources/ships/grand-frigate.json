@@ -1,6 +1,8 @@
 {
   "name": "Grand Frigate",
-  "size": "large",
+  "cbSize": "large",
+  "sizeClass": "grand",
+  "ramDmg": 4,
   "maxSFDmg": 36,
   "maxDmg": 60
 }

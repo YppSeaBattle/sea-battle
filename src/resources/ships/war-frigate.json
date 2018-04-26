@@ -1,6 +1,8 @@
 {
   "name": "War Frigate",
-  "size": "large",
+  "cbSize": "large",
+  "sizeClass": "large",
+  "ramDmg": 3,
   "maxSFDmg": 30,
   "maxDmg": 50
 }

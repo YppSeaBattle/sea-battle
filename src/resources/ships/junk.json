@@ -1,6 +1,8 @@
 {
   "name": "Junk",
-  "size": "large",
+  "cbSize": "large",
+  "sizeClass": "medium",
+  "ramDmg": 1.5,
   "maxSFDmg": 15,
   "maxDmg": 25
 }

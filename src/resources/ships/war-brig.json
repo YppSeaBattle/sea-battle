@@ -1,6 +1,8 @@
 {
   "name": "War Brig",
-  "size": "medium",
+  "cbSize": "medium",
+  "sizeClass": "medium",
+  "ramDmg": 2,
   "maxSFDmg": 15,
   "maxDmg": 25
 }

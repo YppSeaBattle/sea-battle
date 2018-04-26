@@ -1,6 +1,8 @@
 {
   "name": "Baghlah",
-  "size": "medium",
+  "cbSize": "medium",
+  "sizeClass": "medium",
+  "ramDmg": 1,
   "maxSFDmg": 12,
   "maxDmg": 20
 }

@@ -1,6 +1,8 @@
 {
   "name": "Sloop",
-  "size": "small",
+  "cbSize": "small",
+  "sizeClass": "small",
+  "ramDmg": 0.5,
   "maxSFDmg": 6,
   "maxDmg": 10
 }

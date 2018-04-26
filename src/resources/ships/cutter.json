@@ -1,6 +1,8 @@
 {
   "name": "Cutter",
-  "size": "small",
+  "cbSize": "small",
+  "sizeClass": "small",
+  "ramDmg": 0.5,
   "maxSFDmg": 7.5,
   "maxDmg": 12
 }

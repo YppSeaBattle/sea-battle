@@ -1,6 +1,8 @@
 {
   "name": "Dhow",
-  "size": "medium",
+  "cbSize": "medium",
+  "sizeClass": "small",
+  "ramDmg": 0.5,
   "maxSFDmg": 7.5,
   "maxDmg": 12
 }
