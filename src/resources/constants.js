@@ -4,6 +4,13 @@ export const cbDmg = {
   large: 2
 };
 
+export const sizeClasses = Object.freeze({
+  'small': 0,
+  'medium': 1,
+  'large': 2,
+  'grand': 3
+});
+
 export const ships = [
   'Sloop',
   'Cutter',
