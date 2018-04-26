@@ -1,6 +1,6 @@
 {
-    "name": "Longship",
-    "size": "small",
-    "maxSFDmg": 9,
-    "maxDmg": 15
+  "name": "Longship",
+  "size": "small",
+  "maxSFDmg": 9,
+  "maxDmg": 15
 }

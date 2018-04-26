@@ -1,6 +1,6 @@
 {
-    "name": "Sloop",
-    "size": "small",
-    "maxSFDmg": 6,
-    "maxDmg": 10
+  "name": "Sloop",
+  "size": "small",
+  "maxSFDmg": 6,
+  "maxDmg": 10
 }

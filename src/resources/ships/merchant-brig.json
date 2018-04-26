@@ -1,6 +1,6 @@
 {
-    "name": "Merchant brig",
-    "size": "medium",
-    "maxSFDmg": 12,
-    "maxDmg": 20
+  "name": "Merchant brig",
+  "size": "medium",
+  "maxSFDmg": 12,
+  "maxDmg": 20
 }

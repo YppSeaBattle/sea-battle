@@ -1,6 +1,6 @@
 {
-    "name": "Junk",
-    "size": "large",
-    "maxSFDmg": 15,
-    "maxDmg": 25
+  "name": "Junk",
+  "size": "large",
+  "maxSFDmg": 15,
+  "maxDmg": 25
 }

@@ -1,6 +1,6 @@
 {
-    "name": "War Brig",
-    "size": "medium",
-    "maxSFDmg": 15,
-    "maxDmg": 25
+  "name": "War Brig",
+  "size": "medium",
+  "maxSFDmg": 15,
+  "maxDmg": 25
 }

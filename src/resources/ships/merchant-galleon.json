@@ -1,6 +1,6 @@
 {
-    "name": "Merchant Galleon",
-    "size": "large",
-    "maxSFDmg": 18,
-    "maxDmg": 30
+  "name": "Merchant Galleon",
+  "size": "large",
+  "maxSFDmg": 18,
+  "maxDmg": 30
 }
