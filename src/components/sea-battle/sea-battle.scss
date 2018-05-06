@@ -1,5 +1,11 @@
 .battle {
   display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.ships-and-damage {
+  display: flex;
   flex-direction: row;
   justify-content: center;
 }
