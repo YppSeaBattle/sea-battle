@@ -1,8 +1,8 @@
-export const cbDmg = {
-  small: 1,
-  medium: 1.5,
-  large: 2
-};
+export const cbDmg = Object.freeze({
+  'small': 1,
+  'medium': 1.5,
+  'large': 2
+});
 
 export const sizeClasses = Object.freeze({
   'small': 0,
