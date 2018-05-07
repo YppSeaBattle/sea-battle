@@ -3,6 +3,7 @@
   "cbSize": "small",
   "sizeClass": "medium",
   "ramDmg": 0.5,
+  "rockDmg": 0.75,
   "maxSFDmg": 9,
   "maxDmg": 15
 }
