@@ -10,7 +10,6 @@ class SeaBattle extends Component {
     super(props);
     const shipA = require(`../../resources/ships/sloop.json`);
     const shipB = require(`../../resources/ships/sloop.json`);
-    console.log(cbDmg);
     this.state = {
       shipA: {
         ...shipA,
@@ -34,7 +33,7 @@ class SeaBattle extends Component {
               menuItems={ships}
               onChange={this.onShipSelect.bind(this, 'shipA')}
             />
-            <Ship {...this.state.shipA}/>
+            <Ship {...this.state.shipA} enemyCbSize={this.state.shipB.cbSize}/>
           </div>
           <Damage cbDmgA={this.cbDmgA.bind(this)} cbDmgB={this.cbDmgB.bind(this)}/>
           <div className="ship-and-selector">
@@ -44,7 +43,7 @@ class SeaBattle extends Component {
               menuItems={ships}
               onChange={this.onShipSelect.bind(this, 'shipB')}
             />
-            <Ship {...this.state.shipB}/>
+            <Ship {...this.state.shipB} enemyCbSize={this.state.shipA.cbSize}/>
           </div>
         </div>
         <div>
