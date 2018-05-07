@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SelectField } from 'react-md';
 import Damage from '../damage/damage.jsx';
 import Ship from '../ship/ship.jsx';
 import { cbDmg, ships, sizeClasses } from '../../resources/constants';
@@ -26,9 +27,25 @@ class SeaBattle extends Component {
     return (
       <div className="battle">
         <div className="ships-and-damage">
-          <Ship {...this.state.shipA}/>
+          <div className="ship-and-selector">
+            <SelectField
+              id="ship-a-select"
+              defaultValue={'Sloop'}
+              menuItems={ships}
+              onChange={this.onShipSelect.bind(this, 'shipA')}
+            />
+            <Ship {...this.state.shipA}/>
+          </div>
           <Damage cbDmgA={this.cbDmgA.bind(this)} cbDmgB={this.cbDmgB.bind(this)}/>
-          <Ship {...this.state.shipB}/>
+          <div className="ship-and-selector">
+            <SelectField
+              id="ship-b-select"
+              defaultValue={'Sloop'}
+              menuItems={ships}
+              onChange={this.onShipSelect.bind(this, 'shipB')}
+            />
+            <Ship {...this.state.shipB}/>
+          </div>
         </div>
         <div>
           <button onClick={this.resetDmg.bind(this)}>Reset</button>
@@ -57,6 +74,17 @@ class SeaBattle extends Component {
     });
   }
 
+  onShipSelect(ship, value, index, event, details) {
+    const newShip = getShipFilename(value);
+    const config = require(`../../resources/ships/${newShip}.json`);
+    this.setState({
+      [ship]: {
+        ...config,
+        currentDmg: this.state[ship].currentDmg
+      }
+    });
+  }
+
   resetDmg() {
     this.setState({
       shipA: {
@@ -69,6 +97,10 @@ class SeaBattle extends Component {
       }
     })
   }
+}
+
+function getShipFilename(ship) {
+  return ship.toLowerCase().split(' ').join('-');
 }
 
 export default SeaBattle;
