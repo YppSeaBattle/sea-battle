@@ -35,7 +35,13 @@ class SeaBattle extends Component {
             />
             <Ship {...this.state.shipA} enemyCbSize={this.state.shipB.cbSize}/>
           </div>
-          <Damage cbDmgA={this.cbDmgA.bind(this)} cbDmgB={this.cbDmgB.bind(this)}/>
+          <Damage 
+            cbHitA={this.cbHit.bind(this, 'shipA')} 
+            cbHitB={this.cbHit.bind(this, 'shipB')}
+            rockHitA={this.rockHit.bind(this, 'shipA')}
+            rockHitB={this.rockHit.bind(this, 'shipB')}
+            ram={this.ram.bind(this)}
+          />
           <div className="ship-and-selector">
             <SelectField
               id="ship-b-select"
@@ -53,26 +59,40 @@ class SeaBattle extends Component {
     )
   }
 
-  cbDmgA() {
-    const cbSize = this.state.shipB.cbSize;
+  cbHit(ship) {
+    const cbSize = this.state[ship].cbSize;
+    this.inflictDmg(ship, cbDmg[cbSize]);
+  }
+
+  ram() {
+    const shipARamDmg = this.state.shipA.ramDmg;
+    const shipBRamDmg = this.state.shipB.ramDmg;
     this.setState({
       shipA: {
         ...this.state.shipA,
-        currentDmg: this.state.shipA.currentDmg + cbDmg[cbSize]
-      }
-    });
-  }
-  
-  cbDmgB() {
-    const cbSize = this.state.shipA.cbSize;
-    this.setState({
+        currentDmg: this.state.shipA.currentDmg + shipBRamDmg
+      },
       shipB: {
         ...this.state.shipB,
-        currentDmg: this.state.shipB.currentDmg + cbDmg[cbSize]
+        currentDmg: this.state.shipB.currentDmg + shipARamDmg
       }
     });
   }
 
+  rockHit(ship) {
+    const rockDmg = this.state[ship].rockDmg;
+    this.inflictDmg(ship, rockDmg);
+  }
+
+  inflictDmg(ship, dmg) {
+    this.setState({
+      [ship]: {
+        ...this.state[ship],
+        currentDmg: this.state[ship].currentDmg + dmg
+      }
+    });
+  }
+  
   onShipSelect(ship, value, index, event, details) {
     const newShip = getShipFilename(value);
     const config = require(`../../resources/ships/${newShip}.json`);

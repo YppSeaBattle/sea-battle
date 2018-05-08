@@ -13,7 +13,8 @@ class Ship extends Component {
   }
 
   scaleDmg(dmg) {
-    return dmg/cbDmg[this.props.enemyCbSize];
+    const newDmg = dmg/cbDmg[this.props.enemyCbSize];
+    return Math.round(newDmg * 100) / 100;
   }
 }
 
