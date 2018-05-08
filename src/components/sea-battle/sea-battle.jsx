@@ -54,9 +54,15 @@ class SeaBattle extends Component {
         </div>
         <div>
           <button onClick={this.resetDmg.bind(this)}>Reset</button>
+          <button onClick={this.copyScore.bind(this)}>Score</button>
         </div>
       </div>
     )
+  }
+
+  copyScore() {
+    const score = `[Hits Sustained] <Us> ${this.state.shipA.currentDmg}/${this.state.shipA.maxSFDmg} : ${this.state.shipB.currentDmg}/${this.state.shipB.maxSFDmg} <Them>`
+    copyToClipboard(score);
   }
 
   cbHit(ship) {
@@ -121,5 +127,17 @@ class SeaBattle extends Component {
 function getShipFilename(ship) {
   return ship.toLowerCase().split(' ').join('-');
 }
+
+function copyToClipboard(str) {
+  const el = document.createElement('textarea');
+  el.value = str;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+};
 
 export default SeaBattle;
