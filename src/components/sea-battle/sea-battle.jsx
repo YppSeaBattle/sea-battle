@@ -20,6 +20,7 @@ class SeaBattle extends Component {
         currentDmg: 0
       }
     };
+    this.stateHistory = [this.state];
   }
 
   render() {
@@ -53,6 +54,7 @@ class SeaBattle extends Component {
           </div>
         </div>
         <div>
+          <button onClick={this.undo.bind(this)}>Undo</button>
           <button onClick={this.resetDmg.bind(this)}>Reset</button>
           <button onClick={this.copyScore.bind(this)}>Score</button>
         </div>
@@ -82,7 +84,7 @@ class SeaBattle extends Component {
         ...this.state.shipB,
         currentDmg: this.state.shipB.currentDmg + shipARamDmg
       }
-    });
+    }, this.pushState.bind(this));
   }
 
   rockHit(ship) {
@@ -96,7 +98,7 @@ class SeaBattle extends Component {
         ...this.state[ship],
         currentDmg: this.state[ship].currentDmg + dmg
       }
-    });
+    }, this.pushState.bind(this));
   }
   
   onShipSelect(ship, value, index, event, details) {
@@ -107,7 +109,7 @@ class SeaBattle extends Component {
         ...config,
         currentDmg: this.state[ship].currentDmg
       }
-    });
+    }, this.pushState.bind(this));
   }
 
   resetDmg() {
@@ -120,7 +122,18 @@ class SeaBattle extends Component {
         ...this.state.shipB,
         currentDmg: 0
       }
-    })
+    }, () => {
+      this.stateHistory = [this.state];
+    });
+  }
+
+  pushState() {
+    this.stateHistory.push(this.state);
+  }
+
+  undo() {
+    if (this.stateHistory.length > 1) this.stateHistory.pop();
+    this.setState(this.stateHistory[this.stateHistory.length-1]);
   }
 }
 
