@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import { cbDmg } from '../../resources/constants';
+import { scaleDmg } from '../../utils';
 import './ship.css';
 
 class Ship extends Component {
   render() {
     return(
       <div className="ship">
-        <div>Dmg: {this.scaleDmg(this.props.currentDmg)}/{this.scaleDmg(this.props.maxSFDmg)}</div>
+        <div>Dmg: {scaleDmg(this.props.currentDmg, this.props.enemyCbSize)}/{scaleDmg(this.props.maxSFDmg, this.props.enemyCbSize)}</div>
       </div>
     );
-  }
-
-  scaleDmg(dmg) {
-    const newDmg = dmg/cbDmg[this.props.enemyCbSize];
-    return Math.round(newDmg * 100) / 100;
   }
 }
 

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { SelectField } from 'react-md';
 import Damage from '../damage/damage.jsx';
 import Ship from '../ship/ship.jsx';
-import { cbDmg, ships, sizeClasses } from '../../resources/constants';
+import { cbDmg, ships } from '../../resources/constants';
+import { scaleDmg } from '../../utils';
 import './sea-battle.css';
 
 class SeaBattle extends Component {
@@ -63,7 +64,11 @@ class SeaBattle extends Component {
   }
 
   copyScore() {
-    const score = `[Hits Sustained] <Us> ${this.state.shipA.currentDmg}/${this.state.shipA.maxSFDmg} : ${this.state.shipB.currentDmg}/${this.state.shipB.maxSFDmg} <Them>`
+    const cbSizeA = this.state.shipA.cbSize;
+    const cbSizeB = this.state.shipB.cbSize;
+    const score = `[Hits Sustained] <Us> 
+      ${scaleDmg(this.state.shipA.currentDmg, cbSizeB)}/${scaleDmg(this.state.shipA.maxSFDmg, cbSizeB)} : 
+      ${scaleDmg(this.state.shipB.currentDmg, cbSizeA)}/${scaleDmg(this.state.shipB.maxSFDmg, cbSizeA)} <Them>`
     copyToClipboard(score);
   }
 
