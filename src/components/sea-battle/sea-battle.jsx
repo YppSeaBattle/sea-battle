@@ -37,8 +37,8 @@ class SeaBattle extends Component {
             <Ship {...this.state.shipA} enemyCbSize={this.state.shipB.cbSize}/>
           </div>
           <Damage 
-            cbHitA={this.cbHit.bind(this, 'shipA')} 
-            cbHitB={this.cbHit.bind(this, 'shipB')}
+            cbHitA={this.cbHit.bind(this, 'shipA', 'shipB')} 
+            cbHitB={this.cbHit.bind(this, 'shipB', 'shipA')}
             rockHitA={this.rockHit.bind(this, 'shipA')}
             rockHitB={this.rockHit.bind(this, 'shipB')}
             ram={this.ram.bind(this)}
@@ -67,9 +67,9 @@ class SeaBattle extends Component {
     copyToClipboard(score);
   }
 
-  cbHit(ship) {
-    const cbSize = this.state[ship].cbSize;
-    this.inflictDmg(ship, cbDmg[cbSize]);
+  cbHit(yourShip, theirShip) {
+    const cbSize = this.state[theirShip].cbSize;
+    this.inflictDmg(yourShip, cbDmg[cbSize]);
   }
 
   ram() {
