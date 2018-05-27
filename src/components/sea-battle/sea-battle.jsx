@@ -66,9 +66,7 @@ class SeaBattle extends Component {
   copyScore() {
     const cbSizeA = this.state.shipA.cbSize;
     const cbSizeB = this.state.shipB.cbSize;
-    const score = `[Hits Sustained] <Us> 
-      ${scaleDmg(this.state.shipA.currentDmg, cbSizeB)}/${scaleDmg(this.state.shipA.maxSFDmg, cbSizeB)} : 
-      ${scaleDmg(this.state.shipB.currentDmg, cbSizeA)}/${scaleDmg(this.state.shipB.maxSFDmg, cbSizeA)} <Them>`
+    const score = `[Hits Sustained] <Us> ${scaleDmg(this.state.shipA.currentDmg, cbSizeB)}/${scaleDmg(this.state.shipA.maxSFDmg, cbSizeB)} : ${scaleDmg(this.state.shipB.currentDmg, cbSizeA)}/${scaleDmg(this.state.shipB.maxSFDmg, cbSizeA)} <Them>`;
     copyToClipboard(score);
   }
 
